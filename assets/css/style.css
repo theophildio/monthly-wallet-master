@@ -44,3 +44,23 @@ body {
 .heading span {
   font-size: 3.25rem;
 }
+
+.heading .icon img {
+	width: 25%;
+	transform: rotate(-35deg);
+}
+
+.heading .icon {
+	position: absolute;
+	left: 60%;
+	top: -30px;
+	z-index: -1;
+}
+
+/* Income and Expenses */
+
+.income-detail, .expense-detail {
+  min-height: 300px;
+}
+
+
