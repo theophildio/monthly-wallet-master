@@ -80,4 +80,14 @@ body {
   }
 }
 
+/* Error handling */
 
+#income-empty, #income-nan, #expenses-empty, #food-empty, #rent-clothe-empty, #rent-empty, #clothe-empty, #expenses-nan {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  color: #ce0f0f;
+  font-size: 10px;
+  margin-top: 10px;
+  display: none;
+}

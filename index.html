@@ -37,26 +37,34 @@
               <!-- Income -->
               <div class="col-lg-6 my-3">
                 <div class="income-detail border-1 border shadow-sm rounded-2 d-flex justify-content-center align-items-center">
-                  <div class="income-field">
+                  <div class="income-field position-relative">
                     <h3 class="text-capitalize">income</h3>
                     <input id="income-value" type="text" class="form-control" placeholder="&dollar; Income amount">
+                    <p id="income-empty">Opps! income field is empty.</p>
+                    <p id="income-nan">Opps! Negative or string value is not allow in income field.</p>
                   </div>
                 </div>
               </div>
               <!-- Expenses -->
               <div class="col-lg-6 my-3">
                 <div class="expense-detail border-1 border shadow-sm rounded-2 d-flex justify-content-center align-items-center">
-                  <div class="income-field">
+                  <div class="income-field position-relative">
                     <h3 class="text-capitalize">expenses</h3>
                     <input id="food-value" type="text" class="form-control mb-3" placeholder="&dollar; Food cost">
                     <input id="rent-value" type="text" class="form-control mb-3" placeholder="&dollar; Rent cost">
-                    <input id="clothe-values" type="text" class="form-control mb-3" placeholder="&dollar; Clothes cost">
+                    <input id="clothe-values" type="text" class="form-control" placeholder="&dollar; Clothes cost">
+                    <p id="expenses-empty">Opps! expenses fields are empty.</p>
+                    <p id="food-empty">Opps! Food field is empty.</p>
+                    <p id="rent-clothe-empty">Opps! Rent and clothe fields are empty.</p>
+                    <p id="rent-empty">Opps! Rent field is empty.</p>
+                    <p id="clothe-empty">Opps! Clothe field is empty.</p>
+                    <p id="expenses-nan">Opps! Negative or string value is not allow in expense field</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-6 mx-auto text-center">
-              <div class="calculate-btn my-5">
+              <div class="calculate-btn my-5 position-relative">
                 <button id="calculate" class="btn bg-info text-capitalize fs-5 text-light px-5 py-2 shadow-sm">calculate</button>
               </div>
               <div class="expense-balance">

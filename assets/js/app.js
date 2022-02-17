@@ -4,7 +4,10 @@ document.getElementById('calculate').addEventListener('click', function() {
   const incomeInput = document.getElementById('income-value');
   const incomeAmount = parseFloat(incomeInput.value);
   if (incomeInput.value == 0) {
-    console.log('opps! income field is empty.');
+    const incomeEmptyError = document.getElementById('income-empty');
+    incomeEmptyError.style.display = 'block';
+    // Clear income fields
+    incomeInput.value = '';
   } else if (incomeInput.value > 0) {
     // Expenses
     const foodCost = document.getElementById('food-value');
@@ -13,23 +16,85 @@ document.getElementById('calculate').addEventListener('click', function() {
     const rentCostAmount = parseFloat(rentCost.value);
     const clotheCosts = document.getElementById('clothe-values');
     const clotheCostsAmount = parseFloat(clotheCosts.value);
+    // Error message hide
+    const incomeEmptyError = document.getElementById('income-empty');
+    incomeEmptyError.style.display = 'none';
+    const incomeNanError = document.getElementById('income-nan');
+    incomeNanError.style.display = 'none';
     if (foodCost.value == 0 && rentCost.value == 0 && clotheCosts.value == 0) {
-      console.log('opps! expenses fields are empty.')
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'block';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value == 0) {
-      console.log('opps! rent and clothes fields are empty.');
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value == 0) {
-      console.log('opps! clothes field is empty.');
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value > 0) {
-      console.log('opps! food field is empty.')
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value > 0) {
-      console.log('opps! rent field is empty.')
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value > 0) {
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
       const calcExpenses = foodCostAmount + rentCostAmount + clotheCostsAmount;
       const totalBalance = incomeAmount - calcExpenses;
       const expense = document.getElementById('expenses');
       const displayExpense = parseFloat(expense.innerText);
       if (calcExpenses > incomeAmount) {
-        console.log('opps! over expenses. Reduce your expenses.')
+        window.alert('Opps! Over expenses. Reduce your expenses.'); 
       } else {
         expense.innerText = calcExpenses;
         const balance = document.getElementById('balance');
@@ -41,10 +106,26 @@ document.getElementById('calculate').addEventListener('click', function() {
       rentCost.value = '';
       clotheCosts.value = '';
     } else {
-      console.log('opps! negative or string value is not allow expense field.')
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
     }
   } else {
-    console.log('opps! negative or string value is not allow in income field.');
+    const incomeEmptyError = document.getElementById('income-empty');
+    incomeEmptyError.style.display = 'none';
+    const incomeNanError = document.getElementById('income-nan');
+    incomeNanError.style.display = 'block';
+    // Clear income fields
+    incomeInput.value = '';
   }
 });
 
