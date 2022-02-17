@@ -33,7 +33,7 @@ body {
 }
 
 .heading-area {
-  min-height: 70vh;
+  min-height: 75vh;
 }
 
 .heading {
@@ -61,6 +61,23 @@ body {
 
 .income-detail, .expense-detail {
   min-height: 300px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 480px) {
+  .heading-area {
+    min-height: 40vh;
+  }
+  .heading h1 {
+    font-size: 1.25rem;
+  }
+  .heading span {
+    font-size: 1.75rem;
+  }
+  .heading .icon {
+    top: -10px;
+  }
 }
 
 

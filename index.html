@@ -35,8 +35,8 @@
           <div class="col-lg-8 mx-auto">
             <div class="row">
               <!-- Income -->
-              <div class="col-lg-6">
-                <div class="income-detail border-1 border shadow rounded-2 d-flex justify-content-center align-items-center">
+              <div class="col-lg-6 my-3">
+                <div class="income-detail border-1 border shadow-sm rounded-2 d-flex justify-content-center align-items-center">
                   <div class="income-field">
                     <h3 class="text-capitalize">income</h3>
                     <input type="text" class="form-control" placeholder="Income amount">
@@ -44,8 +44,8 @@
                 </div>
               </div>
               <!-- Expenses -->
-              <div class="col-lg-6">
-                <div class="expense-detail border-1 border shadow rounded-2 d-flex justify-content-center align-items-center">
+              <div class="col-lg-6 my-3">
+                <div class="expense-detail border-1 border shadow-sm rounded-2 d-flex justify-content-center align-items-center">
                   <div class="income-field">
                     <h3 class="text-capitalize">expenses</h3>
                     <input type="text" class="form-control mb-3" placeholder="Food cost">
@@ -57,7 +57,7 @@
             </div>
             <div class="col-lg-6 mx-auto text-center">
               <div class="calculate-btn my-5">
-                <button class="btn bg-info text-capitalize fs-5 text-light px-5 py-2">calculate</button>
+                <button class="btn bg-info text-capitalize fs-5 text-light px-5 py-2 shadow-sm">calculate</button>
               </div>
               <div class="expense-balance">
                 <h3 class="text-capitalize">total expenses: $<span>00</span></h3>
@@ -72,21 +72,32 @@
     <!-- Saving Section -->
     <section>
       <div class="container my-5">
-        <h2 class="text-center text-capitalize text-info mb-4">saving here</h2>
         <div class="row">
-          <div class="col-lg-6 mx-auto border border-1 rounded-2 p-5 shadow">
-            <div class="saving-field d-flex justify-content-center">
+          <div class="col-lg-6 mx-auto">
+            <div class="saving-field mx-auto border border-1 rounded-2 p-5 shadow-sm">
+              <h2 class="text-center text-capitalize text-info mb-4">saving here</h2>
               <div class="row">
-                <label class="col-sm-2 fs-4">Save:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control py-2" placeholder="Saving %">
+                <div class="col-lg-5 col-8">
+                  <div class="saving-input d-flex align-items-center">
+                    <label class="text-capitalize fs-5 me-3">save:</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-2 col-4">
+                  <div class="percentage text-center">
+                    <span class="fs-3">%</span>
+                  </div>
+                </div>
+                <div class="col-lg-5 mt-lg-0 mt-4">
+                  <div class="saving-btn">
+                    <button class="btn bg-info text-capitalize text-light w-100 py-1 fs-5 shadow-sm">save</button>
+                  </div>
                 </div>
               </div>
-              <button class="btn bg-info text-capitalize text-light px-5 py-2">save</button>
-            </div>
-            <div class="expense-balance text-center mt-5">
-              <h3 class="text-capitalize">saving amount: $<span>00</span></h3>
-              <h3 class="text-capitalize">remaining balance: $<span>00</span></h3>
+              <div class="expense-balance text-center mt-5">
+                <h3 class="text-capitalize">saving amount: $<span>00</span></h3>
+                <h3 class="text-capitalize">remaining balance: $<span>00</span></h3>
+              </div>
             </div>
           </div>
         </div>
