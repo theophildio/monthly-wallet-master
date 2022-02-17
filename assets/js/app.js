@@ -47,6 +47,21 @@ document.getElementById('calculate').addEventListener('click', function() {
       clotheEmptyError.style.display = 'none';
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
+    } else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value == 0) {
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'block';
+      const expensesEmptyError = document.getElementById('expenses-empty');
+      expensesEmptyError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const expenseNanError = document.getElementById('expenses-nan');
+      expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value == 0) {
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'block';
@@ -87,8 +102,16 @@ document.getElementById('calculate').addEventListener('click', function() {
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
     } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value > 0) {
-      const expenseNanError = document.getElementById('expenses-nan');
+      const expenseNanError = document.getElementById('expenses-empty');
       expenseNanError.style.display = 'none';
+      const foodEmptyError = document.getElementById('food-empty');
+      foodEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const rentEmptyError = document.getElementById('rent-empty');
+      rentEmptyError.style.display = 'none';
+      const clotheEmptyError = document.getElementById('clothe-empty');
+      clotheEmptyError.style.display = 'none';
       const calcExpenses = foodCostAmount + rentCostAmount + clotheCostsAmount;
       const totalBalance = incomeAmount - calcExpenses;
       const expense = document.getElementById('expenses');
@@ -129,3 +152,47 @@ document.getElementById('calculate').addEventListener('click', function() {
   }
 });
 
+// Saving percentage 
+document.getElementById('saving').addEventListener('click', function() {
+  // Income amount
+  const incomeInput = document.getElementById('income-value');
+  const incomeAmount = parseFloat(incomeInput.value);
+  // Percentage amount
+  const inputPerc = document.getElementById('perc-value');
+  const inputPercValue = inputPerc.value;
+  if (inputPerc.value == 0) {
+    console.log('opps! Empty percentage value.');
+    // Clear percentage
+    inputPerc.value = '';
+  } else if (inputPerc.value > 0) {
+    const getPerc = (incomeAmount / 100) * inputPercValue;
+    // Show saving amount
+    if (incomeInput.value == 0) {
+      console.log('Opps! Income input is empty.')
+    } else if (incomeInput.value > 0) {
+      const savimgAmount = document.getElementById('saving-amount');
+      const displayTotalSavingAmount = parseFloat(savimgAmount.innerText);
+      const previousBalance = document.getElementById('balance');
+      const displayPreviousBalance = parseFloat(previousBalance.innerText);
+      // Remaining balance
+      const remainingBalance = document.getElementById('remaining-amount');
+      const displayRemainingBalance = parseFloat(remainingBalance.innerText);
+      if (getPerc > displayPreviousBalance || displayPreviousBalance < getPerc) {
+        console.log("Opps! You don't have enough remaining balance.")
+      } else {
+        savimgAmount.innerText = getPerc;
+        remainingBalance.innerText = displayPreviousBalance - getPerc;
+        // Clear percentage
+        inputPerc.value = '';
+        // Clear income fields
+        incomeInput.value = '';
+      }
+    } else {
+      console.log('Opps! Invalid income amount.')
+    } 
+    }else {
+      console.log('opps! Negative or string is invalid.')
+      // Clear percentage
+      inputPerc.value = '';
+    }
+});
