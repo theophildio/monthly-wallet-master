@@ -126,6 +126,10 @@ getInputValue('calculate').addEventListener('click', function() {
         const displayExpense = parseFloat(expense.innerText);
         if (calcExpenses > calcIncome) {
           window.alert('Opps! Over expenses. Reduce your expenses.'); 
+          // Clear expenses fields
+          foodCost.value = '';
+          rentCost.value = '';
+          clotheCosts.value = '';
       } 
       else {
         expense.innerText = calcExpenses;
