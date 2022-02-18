@@ -240,15 +240,41 @@ document.getElementById('saving').addEventListener('click', function() {
   const inputPerc = document.getElementById('perc-value');
   const inputPercValue = inputPerc.value;
   if (inputPerc.value == 0) {
-    console.log('opps! Empty percentage value.');
+    // Error message for empty perc filed
+    const percEmpty = document.getElementById('perc-empty');
+    percEmpty.style.display = 'block';
+    const incomeAmountEmpty = document.getElementById('income-amount-empty');
+      incomeAmountEmpty.style.display = 'none';
+    const incomeAmountInvalid = document.getElementById('income-amount-invalid');
+      incomeAmountInvalid.style.display = 'none';
+    const invalidPerc = document.getElementById('invalid-perc');
+    invalidPerc.style.display = 'none';
     // Clear percentage
     inputPerc.value = '';
   } else if (inputPerc.value > 0) {
     const getPerc = (incomeAmount / 100) * inputPercValue;
     // Show saving amount
     if (incomeInput.value == 0) {
-      console.log('Opps! Income input is empty.')
+      // Error message for Income field empty
+      const incomeAmountEmpty = document.getElementById('income-amount-empty');
+      incomeAmountEmpty.style.display = 'block';
+      const percEmpty = document.getElementById('perc-empty');
+      percEmpty.style.display = 'none';
+      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
+      incomeAmountInvalid.style.display = 'none';
+      const invalidPerc = document.getElementById('invalid-perc');
+      invalidPerc.style.display = 'none';
     } else if (incomeInput.value > 0) {
+      // Hide all error messages
+      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
+      incomeAmountInvalid.style.display = 'none';
+      const incomeAmountEmpty = document.getElementById('income-amount-empty');
+      incomeAmountEmpty.style.display = 'none';
+      const invalidPerc = document.getElementById('invalid-perc');
+      invalidPerc.style.display = 'none';
+      // Ends
+      const percEmpty = document.getElementById('perc-empty');
+      percEmpty.style.display = 'none';
       const savimgAmount = document.getElementById('saving-amount');
       const displayTotalSavingAmount = parseFloat(savimgAmount.innerText);
       const previousBalance = document.getElementById('balance');
@@ -256,8 +282,8 @@ document.getElementById('saving').addEventListener('click', function() {
       // Remaining balance
       const remainingBalance = document.getElementById('remaining-amount');
       const displayRemainingBalance = parseFloat(remainingBalance.innerText);
-      if (getPerc > displayPreviousBalance || displayPreviousBalance < getPerc) {
-        console.log("Opps! You don't have enough remaining balance.")
+      if (getPerc > displayPreviousBalance) {
+        window.alert("Opps! You don't have enough balance to save money.");
       } else {
         savimgAmount.innerText = getPerc;
         remainingBalance.innerText = displayPreviousBalance - getPerc;
@@ -267,10 +293,26 @@ document.getElementById('saving').addEventListener('click', function() {
         incomeInput.value = '';
       }
     } else {
-      console.log('Opps! Invalid income amount.')
+      // Invalid income amount
+      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
+      incomeAmountInvalid.style.display = 'block';
+      const incomeAmountEmpty = document.getElementById('income-amount-empty');
+      incomeAmountEmpty.style.display = 'none';
+      const percEmpty = document.getElementById('perc-empty');
+      percEmpty.style.display = 'none';
+      const invalidPerc = document.getElementById('invalid-perc');
+      invalidPerc.style.display = 'none';
     } 
     }else {
-      console.log('opps! Negative or string is invalid.')
+      const invalidPerc = document.getElementById('invalid-perc');
+      invalidPerc.style.display = 'block';
+      const incomeAmountEmpty = document.getElementById('income-amount-empty');
+      incomeAmountEmpty.style.display = 'none';
+      const percEmpty = document.getElementById('perc-empty');
+      percEmpty.style.display = 'none';
+      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
+      incomeAmountInvalid.style.display = 'none';
+
       // Clear percentage
       inputPerc.value = '';
     }

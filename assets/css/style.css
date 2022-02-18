@@ -82,7 +82,7 @@ body {
 
 /* Error handling */
 
-#income-empty, #income-nan, #expenses-empty, #food-empty, #rent-clothe-empty, #food-clothe-empty, #food-rent-empty, #rent-empty, #clothe-empty, #expenses-nan {
+#income-empty, #income-nan, #expenses-empty, #food-empty, #rent-clothe-empty, #food-clothe-empty, #food-rent-empty, #rent-empty, #clothe-empty, #expenses-nan, #perc-empty, #income-amount-empty, #income-amount-invalid, #invalid-perc {
   position: absolute;
   left: 0;
   top: 100%;
