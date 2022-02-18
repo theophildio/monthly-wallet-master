@@ -16,25 +16,94 @@ document.getElementById('calculate').addEventListener('click', function() {
     const rentCostAmount = parseFloat(rentCost.value);
     const clotheCosts = document.getElementById('clothe-values');
     const clotheCostsAmount = parseFloat(clotheCosts.value);
-    // Error message hide
+    // Error message for income field
     const incomeEmptyError = document.getElementById('income-empty');
     incomeEmptyError.style.display = 'none';
     const incomeNanError = document.getElementById('income-nan');
     incomeNanError.style.display = 'none';
+
+    // Error message for expenses empty fields
     if (foodCost.value == 0 && rentCost.value == 0 && clotheCosts.value == 0) {
       const expensesEmptyError = document.getElementById('expenses-empty');
       expensesEmptyError.style.display = 'block';
       const foodEmptyError = document.getElementById('food-empty');
       foodEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
       const rentEmptyError = document.getElementById('rent-empty');
       rentEmptyError.style.display = 'none';
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'none';
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'none';
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
-    } else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value == 0) {
+    } 
+
+      // Error message for food empty field
+      else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value > 0) {
+        const foodEmptyError = document.getElementById('food-empty');
+        foodEmptyError.style.display = 'block';
+        const expensesEmptyError = document.getElementById('expenses-empty');
+        expensesEmptyError.style.display = 'none';
+        const rentEmptyError = document.getElementById('rent-empty');
+        rentEmptyError.style.display = 'none';
+        const clotheEmptyError = document.getElementById('clothe-empty');
+        clotheEmptyError.style.display = 'none';
+        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+        rentClotheEmptyError.style.display = 'none';
+        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+        foodClotheEmptyError.style.display = 'none';
+        const foodRentEmptyError = document.getElementById('food-rent-empty');
+        foodRentEmptyError.style.display = 'none';
+        const expenseNanError = document.getElementById('expenses-nan');
+        expenseNanError.style.display = 'none';
+      } 
+      
+        // Error message for rent empty filed
+        else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value > 0) {
+        const rentEmptyError = document.getElementById('rent-empty');
+        rentEmptyError.style.display = 'block';
+        const expensesEmptyError = document.getElementById('expenses-empty');
+        expensesEmptyError.style.display = 'none';
+        const foodEmptyError = document.getElementById('food-empty');
+        foodEmptyError.style.display = 'none';
+        const clotheEmptyError = document.getElementById('clothe-empty');
+        clotheEmptyError.style.display = 'none';
+        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+        rentClotheEmptyError.style.display = 'none';
+        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+        foodClotheEmptyError.style.display = 'none';
+        const foodRentEmptyError = document.getElementById('food-rent-empty');
+        foodRentEmptyError.style.display = 'none';
+        const expenseNanError = document.getElementById('expenses-nan');
+        expenseNanError.style.display = 'none';
+      }
+
+        // Error message for clothe empty field
+        else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value == 0) {
+        const clotheEmptyError = document.getElementById('clothe-empty');
+        clotheEmptyError.style.display = 'block';
+        const expensesEmptyError = document.getElementById('expenses-empty');
+        expensesEmptyError.style.display = 'none';
+        const foodEmptyError = document.getElementById('food-empty');
+        foodEmptyError.style.display = 'none';
+        const rentEmptyError = document.getElementById('rent-empty');
+        rentEmptyError.style.display = 'none';
+        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+        rentClotheEmptyError.style.display = 'none';
+        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+        foodClotheEmptyError.style.display = 'none';
+        const foodRentEmptyError = document.getElementById('food-rent-empty');
+        foodRentEmptyError.style.display = 'none';
+        const expenseNanError = document.getElementById('expenses-nan');
+        expenseNanError.style.display = 'none';
+      } 
+
+      // Error message for rent and clothes empty fields
+      else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value == 0) {
       const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
       rentClotheEmptyError.style.display = 'block';
       const expensesEmptyError = document.getElementById('expenses-empty');
@@ -45,9 +114,16 @@ document.getElementById('calculate').addEventListener('click', function() {
       rentEmptyError.style.display = 'none';
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'none';
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'none';
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'none';
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
-    } else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value == 0) {
+    } 
+    
+      // Error message for food clothe empty fields
+      else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value == 0) {
       const foodClotheEmptyError = document.getElementById('food-clothe-empty');
       foodClotheEmptyError.style.display = 'block';
       const expensesEmptyError = document.getElementById('expenses-empty');
@@ -60,58 +136,48 @@ document.getElementById('calculate').addEventListener('click', function() {
       clotheEmptyError.style.display = 'none';
       const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
       rentClotheEmptyError.style.display = 'none';
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'none';
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
-    } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value == 0) {
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'block';
+    } 
+
+      // Error message for food rent empty fields
+      else if (foodCost.value == 0 && rentCost.value == 0 && clotheCosts.value > 0) {
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'block';
       const expensesEmptyError = document.getElementById('expenses-empty');
       expensesEmptyError.style.display = 'none';
       const foodEmptyError = document.getElementById('food-empty');
       foodEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
-    } else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value > 0) {
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
       const rentEmptyError = document.getElementById('rent-empty');
       rentEmptyError.style.display = 'none';
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
-    } else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value > 0) {
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
       const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
       rentClotheEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'none';
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'none';
-    } else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value > 0) {
+    } 
+     
+      // Hide all error messages
+      else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value > 0) {
       const expenseNanError = document.getElementById('expenses-empty');
       expenseNanError.style.display = 'none';
       const foodEmptyError = document.getElementById('food-empty');
       foodEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
       const rentEmptyError = document.getElementById('rent-empty');
       rentEmptyError.style.display = 'none';
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'none';
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'none';
       const calcExpenses = foodCostAmount + rentCostAmount + clotheCostsAmount;
       const totalBalance = incomeAmount - calcExpenses;
       const expense = document.getElementById('expenses');
@@ -123,26 +189,39 @@ document.getElementById('calculate').addEventListener('click', function() {
         const balance = document.getElementById('balance');
         const displayBalance = parseFloat(balance.innerText);
         balance.innerText = totalBalance;
+        // Hide nan error message
+        const expenseNanError = document.getElementById('expenses-nan');
+        expenseNanError.style.display = 'none';
       }
       // Clear expenses fields
       foodCost.value = '';
       rentCost.value = '';
       clotheCosts.value = '';
-    } else {
+    } 
+    
+      // Error message for expenses nan
+      else {
       const expenseNanError = document.getElementById('expenses-nan');
       expenseNanError.style.display = 'block';
       const expensesEmptyError = document.getElementById('expenses-empty');
       expensesEmptyError.style.display = 'none';
       const foodEmptyError = document.getElementById('food-empty');
       foodEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
       const rentEmptyError = document.getElementById('rent-empty');
       rentEmptyError.style.display = 'none';
       const clotheEmptyError = document.getElementById('clothe-empty');
       clotheEmptyError.style.display = 'none';
+      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
+      rentClotheEmptyError.style.display = 'none';
+      const foodRentEmptyError = document.getElementById('food-rent-empty');
+      foodRentEmptyError.style.display = 'none';
+      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
+      foodClotheEmptyError.style.display = 'none';
     }
-  } else {
+  } 
+  
+  // Error message for income nan
+  else {
     const incomeEmptyError = document.getElementById('income-empty');
     incomeEmptyError.style.display = 'none';
     const incomeNanError = document.getElementById('income-nan');
