@@ -1,254 +1,191 @@
+// Function to get input id
+function getInputValue(inputId) {
+  const getInput = document.getElementById(inputId);
+  const inputAmount = getInput;
+  return inputAmount;
+}
+
+// Function to show error message
+function showErrorMsg(err) {
+  const getError = document.getElementById(err);
+  getError.style.display = 'block';
+}
+
+// Function to hide error message
+function hideErrorMsg(err) {
+  const getError = document.getElementById(err);
+  getError.style.display = 'none';
+}
+
 // Calculate income and expenses
 document.getElementById('calculate').addEventListener('click', function() {
-  // Income
-  const incomeInput = document.getElementById('income-value');
-  const incomeAmount = parseFloat(incomeInput.value);
-  if (incomeInput.value == 0) {
-    const incomeEmptyError = document.getElementById('income-empty');
-    incomeEmptyError.style.display = 'block';
+  // Get income amount
+  const getIncomeAmount = getInputValue('income-value');
+  const calcIncome = parseFloat(getIncomeAmount.value);
+  if (getIncomeAmount.value == 0) {
+    // Empty error msg
+    showErrorMsg('income-empty');
+    hideErrorMsg('income-nan');
     // Clear income fields
-    incomeInput.value = '';
-  } else if (incomeInput.value > 0) {
-    // Expenses
-    const foodCost = document.getElementById('food-value');
-    const foodCostAmount = parseFloat(foodCost.value);
-    const rentCost = document.getElementById('rent-value');
-    const rentCostAmount = parseFloat(rentCost.value);
-    const clotheCosts = document.getElementById('clothe-values');
-    const clotheCostsAmount = parseFloat(clotheCosts.value);
+    getIncomeAmount.value = '';
+  } else if (calcIncome > 0) {
+    // Expenses calculation
+    const foodCost = getInputValue('food-value');
+    const foodCostValue = parseFloat(foodCost.value);
+    const rentCost = getInputValue('rent-value');
+    const rentCostValue = parseFloat(rentCost.value);
+    const clotheCosts = getInputValue('clothe-values');
+    const clotheCostsValue = parseFloat(clotheCosts.value);
     // Error message for income field
-    const incomeEmptyError = document.getElementById('income-empty');
-    incomeEmptyError.style.display = 'none';
-    const incomeNanError = document.getElementById('income-nan');
-    incomeNanError.style.display = 'none';
-
+    hideErrorMsg('income-empty');
+    hideErrorMsg('income-nan');
     // Error message for expenses empty fields
     if (foodCost.value == 0 && rentCost.value == 0 && clotheCosts.value == 0) {
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'block';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'none';
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
+      showErrorMsg('expenses-empty');
+      hideErrorMsg('food-empty');
+      hideErrorMsg('rent-empty');
+      hideErrorMsg('clothe-empty');
+      hideErrorMsg('rent-clothe-empty');
+      hideErrorMsg('food-clothe-empty');
+      hideErrorMsg('food-rent-empty');
+      hideErrorMsg('expenses-nan');
     } 
 
       // Error message for food empty field
       else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value > 0) {
-        const foodEmptyError = document.getElementById('food-empty');
-        foodEmptyError.style.display = 'block';
-        const expensesEmptyError = document.getElementById('expenses-empty');
-        expensesEmptyError.style.display = 'none';
-        const rentEmptyError = document.getElementById('rent-empty');
-        rentEmptyError.style.display = 'none';
-        const clotheEmptyError = document.getElementById('clothe-empty');
-        clotheEmptyError.style.display = 'none';
-        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-        rentClotheEmptyError.style.display = 'none';
-        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-        foodClotheEmptyError.style.display = 'none';
-        const foodRentEmptyError = document.getElementById('food-rent-empty');
-        foodRentEmptyError.style.display = 'none';
-        const expenseNanError = document.getElementById('expenses-nan');
-        expenseNanError.style.display = 'none';
+        showErrorMsg('food-empty');
+        hideErrorMsg('expenses-empty');
+        hideErrorMsg('rent-empty');
+        hideErrorMsg('clothe-empty');
+        hideErrorMsg('rent-clothe-empty');
+        hideErrorMsg('food-clothe-empty');
+        hideErrorMsg('food-rent-empty');
+        hideErrorMsg('expenses-nan');
       } 
       
         // Error message for rent empty filed
         else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value > 0) {
-        const rentEmptyError = document.getElementById('rent-empty');
-        rentEmptyError.style.display = 'block';
-        const expensesEmptyError = document.getElementById('expenses-empty');
-        expensesEmptyError.style.display = 'none';
-        const foodEmptyError = document.getElementById('food-empty');
-        foodEmptyError.style.display = 'none';
-        const clotheEmptyError = document.getElementById('clothe-empty');
-        clotheEmptyError.style.display = 'none';
-        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-        rentClotheEmptyError.style.display = 'none';
-        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-        foodClotheEmptyError.style.display = 'none';
-        const foodRentEmptyError = document.getElementById('food-rent-empty');
-        foodRentEmptyError.style.display = 'none';
-        const expenseNanError = document.getElementById('expenses-nan');
-        expenseNanError.style.display = 'none';
+          showErrorMsg('rent-empty');
+          hideErrorMsg('expenses-empty');
+          hideErrorMsg('food-empty');
+          hideErrorMsg('clothe-empty');
+          hideErrorMsg('rent-clothe-empty');
+          hideErrorMsg('food-clothe-empty');
+          hideErrorMsg('food-rent-empty');
+          hideErrorMsg('expenses-nan');
       }
 
         // Error message for clothe empty field
         else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value == 0) {
-        const clotheEmptyError = document.getElementById('clothe-empty');
-        clotheEmptyError.style.display = 'block';
-        const expensesEmptyError = document.getElementById('expenses-empty');
-        expensesEmptyError.style.display = 'none';
-        const foodEmptyError = document.getElementById('food-empty');
-        foodEmptyError.style.display = 'none';
-        const rentEmptyError = document.getElementById('rent-empty');
-        rentEmptyError.style.display = 'none';
-        const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-        rentClotheEmptyError.style.display = 'none';
-        const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-        foodClotheEmptyError.style.display = 'none';
-        const foodRentEmptyError = document.getElementById('food-rent-empty');
-        foodRentEmptyError.style.display = 'none';
-        const expenseNanError = document.getElementById('expenses-nan');
-        expenseNanError.style.display = 'none';
+          showErrorMsg('clothe-empty');
+          hideErrorMsg('expenses-empty');
+          hideErrorMsg('food-empty');
+          hideErrorMsg('rent-empty');
+          hideErrorMsg('rent-clothe-empty');
+          hideErrorMsg('food-clothe-empty');
+          hideErrorMsg('food-rent-empty');
+          hideErrorMsg('expenses-nan');
       } 
 
       // Error message for rent and clothes empty fields
       else if (foodCost.value > 0 && rentCost.value == 0 && clotheCosts.value == 0) {
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'none';
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
+        showErrorMsg('rent-clothe-empty');
+        hideErrorMsg('expenses-empty');
+        hideErrorMsg('food-empty');
+        hideErrorMsg('rent-empty');
+        hideErrorMsg('clothe-empty');
+        hideErrorMsg('food-clothe-empty');
+        hideErrorMsg('food-rent-empty');
+        hideErrorMsg('expenses-nan');
     } 
-    
       // Error message for food clothe empty fields
       else if (foodCost.value == 0 && rentCost.value > 0 && clotheCosts.value == 0) {
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
+        showErrorMsg('food-clothe-empty');
+        hideErrorMsg('expenses-empty');
+        hideErrorMsg('food-empty');
+        hideErrorMsg('rent-empty');
+        hideErrorMsg('clothe-empty');
+        hideErrorMsg('rent-clothe-empty');
+        hideErrorMsg('food-rent-empty');
+        hideErrorMsg('expenses-nan');
     } 
-
       // Error message for food rent empty fields
       else if (foodCost.value == 0 && rentCost.value == 0 && clotheCosts.value > 0) {
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'none';
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'none';
+        showErrorMsg('food-rent-empty');
+        hideErrorMsg('expenses-empty');
+        hideErrorMsg('food-empty');
+        hideErrorMsg('rent-empty');
+        hideErrorMsg('clothe-empty');
+        hideErrorMsg('rent-clothe-empty');
+        hideErrorMsg('food-clothe-empty');
+        hideErrorMsg('expenses-nan');
     } 
      
       // Hide all error messages
       else if (foodCost.value > 0 && rentCost.value > 0 && clotheCosts.value > 0) {
-      const expenseNanError = document.getElementById('expenses-empty');
-      expenseNanError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'none';
-      const calcExpenses = foodCostAmount + rentCostAmount + clotheCostsAmount;
-      const totalBalance = incomeAmount - calcExpenses;
-      const expense = document.getElementById('expenses');
+        hideErrorMsg('expenses-empty');
+        hideErrorMsg('food-empty');
+        hideErrorMsg('rent-empty');
+        hideErrorMsg('clothe-empty');
+        hideErrorMsg('rent-clothe-empty');
+        hideErrorMsg('food-rent-empty');
+        hideErrorMsg('food-clothe-empty');
+      // Expenses calculation
+      const calcExpenses = foodCostValue + rentCostValue + clotheCostsValue;
+      const totalBalance = calcIncome - calcExpenses;
+      const expense = getInputValue('expenses');
       const displayExpense = parseFloat(expense.innerText);
-      if (calcExpenses > incomeAmount) {
+      if (calcExpenses > calcIncome) {
         window.alert('Opps! Over expenses. Reduce your expenses.'); 
       } else {
         expense.innerText = calcExpenses;
-        const balance = document.getElementById('balance');
+        const balance = getInputValue('balance');
         const displayBalance = parseFloat(balance.innerText);
         balance.innerText = totalBalance;
         // Hide nan error message
-        const expenseNanError = document.getElementById('expenses-nan');
-        expenseNanError.style.display = 'none';
+        hideErrorMsg('expenses-nan');
+        // Clear expenses fields
+        foodCost.value = '';
+        rentCost.value = '';
+        clotheCosts.value = '';
+        
       }
-      // Clear expenses fields
-      foodCost.value = '';
-      rentCost.value = '';
-      clotheCosts.value = '';
-    } 
-    
-      // Error message for expenses nan
-      else {
-      const expenseNanError = document.getElementById('expenses-nan');
-      expenseNanError.style.display = 'block';
-      const expensesEmptyError = document.getElementById('expenses-empty');
-      expensesEmptyError.style.display = 'none';
-      const foodEmptyError = document.getElementById('food-empty');
-      foodEmptyError.style.display = 'none';
-      const rentEmptyError = document.getElementById('rent-empty');
-      rentEmptyError.style.display = 'none';
-      const clotheEmptyError = document.getElementById('clothe-empty');
-      clotheEmptyError.style.display = 'none';
-      const rentClotheEmptyError = document.getElementById('rent-clothe-empty');
-      rentClotheEmptyError.style.display = 'none';
-      const foodRentEmptyError = document.getElementById('food-rent-empty');
-      foodRentEmptyError.style.display = 'none';
-      const foodClotheEmptyError = document.getElementById('food-clothe-empty');
-      foodClotheEmptyError.style.display = 'none';
+    }  
+    // Error message for expenses nan
+    else {
+      showErrorMsg('expenses-nan');
+      hideErrorMsg('expenses-empty');
+      hideErrorMsg('food-empty');
+      hideErrorMsg('rent-empty');
+      hideErrorMsg('clothe-empty');
+      hideErrorMsg('rent-clothe-empty');
+      hideErrorMsg('food-rent-empty');
+      hideErrorMsg('food-clothe-empty');
     }
   } 
-  
   // Error message for income nan
   else {
-    const incomeEmptyError = document.getElementById('income-empty');
-    incomeEmptyError.style.display = 'none';
-    const incomeNanError = document.getElementById('income-nan');
-    incomeNanError.style.display = 'block';
+    hideErrorMsg('income-empty');
+    showErrorMsg('income-nan');
     // Clear income fields
-    incomeInput.value = '';
+    getIncomeAmount.value = '';
   }
 });
 
 // Saving percentage 
 document.getElementById('saving').addEventListener('click', function() {
   // Income amount
-  const incomeInput = document.getElementById('income-value');
+  const incomeInput = getInputValue('income-value');
   const incomeAmount = parseFloat(incomeInput.value);
   // Percentage amount
-  const inputPerc = document.getElementById('perc-value');
+  const inputPerc = getInputValue('perc-value');
   const inputPercValue = inputPerc.value;
   if (inputPerc.value == 0) {
     // Error message for empty perc filed
-    const percEmpty = document.getElementById('perc-empty');
-    percEmpty.style.display = 'block';
-    const incomeAmountEmpty = document.getElementById('income-amount-empty');
-      incomeAmountEmpty.style.display = 'none';
-    const incomeAmountInvalid = document.getElementById('income-amount-invalid');
-      incomeAmountInvalid.style.display = 'none';
-    const invalidPerc = document.getElementById('invalid-perc');
-    invalidPerc.style.display = 'none';
+    showErrorMsg('perc-empty');
+    hideErrorMsg('income-amount-empty');
+    hideErrorMsg('income-amount-invalid');
+    hideErrorMsg('invalid-perc');
     // Clear percentage
     inputPerc.value = '';
   } else if (inputPerc.value > 0) {
@@ -256,31 +193,23 @@ document.getElementById('saving').addEventListener('click', function() {
     // Show saving amount
     if (incomeInput.value == 0) {
       // Error message for Income field empty
-      const incomeAmountEmpty = document.getElementById('income-amount-empty');
-      incomeAmountEmpty.style.display = 'block';
-      const percEmpty = document.getElementById('perc-empty');
-      percEmpty.style.display = 'none';
-      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
-      incomeAmountInvalid.style.display = 'none';
-      const invalidPerc = document.getElementById('invalid-perc');
-      invalidPerc.style.display = 'none';
+      showErrorMsg('income-amount-empty')
+      hideErrorMsg('perc-empty');
+      hideErrorMsg('income-amount-invalid');
+      hideErrorMsg('invalid-perc');
     } else if (incomeInput.value > 0) {
       // Hide all error messages
-      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
-      incomeAmountInvalid.style.display = 'none';
-      const incomeAmountEmpty = document.getElementById('income-amount-empty');
-      incomeAmountEmpty.style.display = 'none';
-      const invalidPerc = document.getElementById('invalid-perc');
-      invalidPerc.style.display = 'none';
+      hideErrorMsg('income-amount-invalid')
+      hideErrorMsg('income-amount-empty')
+      hideErrorMsg('perc-empty');
+      hideErrorMsg('invalid-perc');
       // Ends
-      const percEmpty = document.getElementById('perc-empty');
-      percEmpty.style.display = 'none';
-      const savimgAmount = document.getElementById('saving-amount');
+      const savimgAmount = getInputValue('saving-amount');
       const displayTotalSavingAmount = parseFloat(savimgAmount.innerText);
-      const previousBalance = document.getElementById('balance');
+      const previousBalance = getInputValue('balance');
       const displayPreviousBalance = parseFloat(previousBalance.innerText);
       // Remaining balance
-      const remainingBalance = document.getElementById('remaining-amount');
+      const remainingBalance = getInputValue('remaining-amount');
       const displayRemainingBalance = parseFloat(remainingBalance.innerText);
       if (getPerc > displayPreviousBalance) {
         window.alert("Opps! You don't have enough balance to save money.");
@@ -293,26 +222,18 @@ document.getElementById('saving').addEventListener('click', function() {
         incomeInput.value = '';
       }
     } else {
-      // Invalid income amount
-      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
-      incomeAmountInvalid.style.display = 'block';
-      const incomeAmountEmpty = document.getElementById('income-amount-empty');
-      incomeAmountEmpty.style.display = 'none';
-      const percEmpty = document.getElementById('perc-empty');
-      percEmpty.style.display = 'none';
-      const invalidPerc = document.getElementById('invalid-perc');
-      invalidPerc.style.display = 'none';
+      // Invalid income amount error msg
+      showErrorMsg('income-amount-invalid')
+      hideErrorMsg('perc-empty');
+      hideErrorMsg('income-amount-empty');
+      hideErrorMsg('invalid-perc');
     } 
     }else {
-      const invalidPerc = document.getElementById('invalid-perc');
-      invalidPerc.style.display = 'block';
-      const incomeAmountEmpty = document.getElementById('income-amount-empty');
-      incomeAmountEmpty.style.display = 'none';
-      const percEmpty = document.getElementById('perc-empty');
-      percEmpty.style.display = 'none';
-      const incomeAmountInvalid = document.getElementById('income-amount-invalid');
-      incomeAmountInvalid.style.display = 'none';
-
+      // Error msg for ivalid percentage
+      showErrorMsg('invalid-perc')
+      hideErrorMsg('perc-empty');
+      hideErrorMsg('income-amount-empty');
+      hideErrorMsg('income-amount-invalid');
       // Clear percentage
       inputPerc.value = '';
     }
